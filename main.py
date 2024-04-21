@@ -4,6 +4,7 @@ import requests
 import time
 import os 
 import typing
+from dotenv import load_dotenv
 
 ## AI IMPORTS 
 
