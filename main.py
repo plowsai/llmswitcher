@@ -9,6 +9,11 @@ openai_api_key = ""
 anthropic_key = ""
 hf_key = ""
 
+#alternative you can use the .env if you prefer 
+# openai_api_key = os.env("")
+# anthropic_key = os.env("")
+# hf_key = os.env("")
+
 class ModelInterface:
     def __init__(self, name, endpoint):
         self.name = name
