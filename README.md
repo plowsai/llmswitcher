@@ -1,5 +1,5 @@
 # LLM-Switcher 
-<p> Dynamically switch between different LLM's if you reach a token limit, without stopping flow </p>
+<p> Route between different LLM's based on a prompt. This helps reduce the cost of using an LLM that might be more expensive and or less performant on the task being prompted</p>
 
 ## Use Cases 
 
