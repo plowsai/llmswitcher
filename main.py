@@ -35,12 +35,12 @@ class ModelInterface:
         return response
 
 # Example models
-model1 = ModelInterface("Model1", "https://api.model1.com")
-model2 = ModelInterface("Model2", "https://api.model2.com")
-model3 = ModelInterface("Model3", "https://api.model3.com")
+openai = ModelInterface("Model1", "https://api.model1.com")
+hf = ModelInterface("Model2", "https://api.model2.com")
+anthropic = ModelInterface("Model3", "https://api.model3.com")
 
 # List of models to switch between
-models = [model1, model2, model3]
+models = [openai, hf, anthropic]
 
 class LLM_Switcher:
     def __init__(self, models):
