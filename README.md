@@ -10,6 +10,13 @@
 - Code.. For codegen tools or companies this could be really useful. Right now I have claude-3-opus in cursor.sh but I would love to be able to switch between different models if the output is better witohut having to constantly add my API key. 
 
 
+## Install 
+
+```
+pip install llm-switcher
+```
+
+
 ## Disclaimer 
 
 <p> This is for pure experimental purposes. If you find this useful or want to make it better feel free to open a PR </p>
