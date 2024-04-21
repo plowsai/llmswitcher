@@ -35,9 +35,9 @@ class ModelInterface:
         return response
 
 # Example models
-openai = ModelInterface("Model1", "https://api.model1.com")
-hf = ModelInterface("Model2", "https://api.model2.com")
-anthropic = ModelInterface("Model3", "https://api.model3.com")
+openai = ModelInterface("openai", "https://api.model1.com")
+hf = ModelInterface("hf", "https://api.model2.com")
+anthropic = ModelInterface("anthropic", "https://api.model3.com")
 
 # List of models to switch between
 models = [openai, hf, anthropic]
