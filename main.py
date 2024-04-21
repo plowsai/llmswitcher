@@ -5,9 +5,12 @@ import time
 import os 
 import typing
 
-openai_api_key = ""
-anthropic_key = ""
-hf_key = ""
+## AI IMPORTS 
+
+
+openai_api_key = os.env("")
+anthropic_key = os.env("")
+hf_key = os.env("")
 
 #alternative you can use the .env if you prefer 
 # openai_api_key = os.env("")

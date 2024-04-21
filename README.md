@@ -16,7 +16,6 @@
 pip install llm-switcher
 ```
 
-
 ## Disclaimer 
 
 <p> This is for pure experimental purposes. If you find this useful or want to make it better feel free to open a PR </p>
