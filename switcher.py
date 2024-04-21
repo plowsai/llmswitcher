@@ -17,12 +17,16 @@ anthropic_key = os.getenv("ANTHROPIC_API_KEY")
 hf_key = os.getenv("HF_API_KEY")
 
 class ModelInterface:
-    def __init__(self, name, endpoint):
+    def __init__(self, name, endpoint, api_key):
         self.name = name
         self.endpoint = endpoint
+        self.api_key = api_key
 
     def request(self, query, timeout=None, max_tokens=None):
-        time.sleep(timeout) # Simulate a delay
+        if not self.api_key:
+            raise Exception("API key not set for model.")
+        # Simulate a delay and a response
+        time.sleep(timeout)
         response = {"tokens": 100, "result": "This is a placeholder response."}
         if max_tokens and response["tokens"] > max_tokens:
             raise Exception("Token count exceeded.")
