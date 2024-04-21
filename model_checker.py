@@ -1,5 +1,5 @@
 import sys
-from main import LLM_Switcher, models # Replace 'your_main_script' with the actual name of your main script
+from switcher import LLM_Switcher, models # Replace 'your_main_script' with the actual name of your main script
 
 def main():
     switcher = LLM_Switcher(models) # You need to define 'models' here or import it from your main script
