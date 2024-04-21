@@ -1,16 +1,13 @@
-## Here you will attach or call your own model.. you can bring your own model or pay for SLAM-1 which was designed to work with Stable Agents
-
-import requests
 import time
 import os 
-import typing
 from dotenv import load_dotenv
 
 ## AI IMPORTS 
 ##
 ## OPENAI
-from openai import OpenAI
-client = OpenAI()
+# from openai import OpenAI
+# client = OpenAI()
+
 ##
 ## Anthropic
 
