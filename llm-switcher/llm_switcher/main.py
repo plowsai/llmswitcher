@@ -12,8 +12,8 @@ model3_api_key = "YOUR_API_KEY_HERE"
 
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-model2_api_key = os.getenv("MODEL2_API_KEY")
-model3_api_key = os.getenv("MODEL3_API_KEY")
+huggingface_api_key = os.getenv("HF_API_KEY")
+anthropic_key = os.getenv("ANTHROPIC_API_KEY")
 
 
 class ModelInterface:
