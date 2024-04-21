@@ -7,7 +7,12 @@ import typing
 from dotenv import load_dotenv
 
 ## AI IMPORTS 
-
+##
+## OPENAI
+from openai import OpenAI
+client = OpenAI()
+##
+## Anthropic
 
 openai_api_key = os.env("")
 anthropic_key = os.env("")
