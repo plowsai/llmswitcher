@@ -2,6 +2,19 @@
 
 import requests
 import time
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+openai_api_key = "YOUR_API_KEY_HERE"
+model2_api_key = "YOUR_API_KEY_HERE"
+model3_api_key = "YOUR_API_KEY_HERE"
+
+
+openai_api_key = os.getenv("OPENAI_API_KEY")
+model2_api_key = os.getenv("MODEL2_API_KEY")
+model3_api_key = os.getenv("MODEL3_API_KEY")
+
 
 class ModelInterface:
     def __init__(self, name, endpoint):
@@ -18,9 +31,9 @@ class ModelInterface:
         return response
 
 # Example models
-model1 = ModelInterface("Model1", "https://api.model1.com")
-model2 = ModelInterface("Model2", "https://api.model2.com")
-model3 = ModelInterface("Model3", "https://api.model3.com")
+model1 = ModelInterface("OpenAI", "https://api.model1.com")
+model2 = ModelInterface("Anthropic", "https://api.model2.com")
+model3 = ModelInterface("Llama", "https://api.model3.com")
 
 # List of models to switch between
 models = [model1, model2, model3]
