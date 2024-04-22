@@ -6,14 +6,9 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# AI IMPORTS
-# OPENAI
-# from openai import OpenAI
-# client = OpenAI()
-
 # Anthropic
 openai_api_key = os.getenv("OPENAI_API_KEY")
-# anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+anthropic_key = os.getenv("ANTHROPIC_API_KEY")
 # hf_key = os.getenv("HF_API_KEY")
 
 class ModelInterface:
@@ -35,12 +30,12 @@ class ModelInterface:
 # Example models
 # Correctly initialize the openai instance with the api_key
 openai = ModelInterface("openai", "https://api.openai.com/v1/models", openai_api_key)
-
-# hf = ModelInterface("hf", "https://api.model2.com")
-# anthropic = ModelInterface("anthropic", "https://api.model3.com")
+## ADDING HUGGING FACE SUPPORT LATER
+# hf = ModelInterface("hf", "https://api.model2.com", hf_key)
+anthropic = ModelInterface("anthropic", "https://api.anthropic.com/v1/messages", anthropic_key)
 
 # List of models to switch between
-models = [openai]
+models = [openai,anthropic]
 
 class LLM_Switcher:
     def __init__(self, models):
