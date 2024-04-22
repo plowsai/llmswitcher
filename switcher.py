@@ -56,17 +56,37 @@ class LLM_Switcher:
         self.last_used_model = None
 
     def switch_and_request(self, query, timeout=5, max_tokens=100):
+        # Prioritize OpenAI model
+        openai_model = None
         for model in self.models:
+            if model.name == "openai":
+                openai_model = model
+                break
+
+        if openai_model:
             try:
-                response = model.request(query, timeout=timeout, max_tokens=max_tokens)
-                if response:
+                response, score = openai_model.request(query, timeout=timeout, max_tokens=max_tokens)
+                self.last_used_model = openai_model
+                return response
+            except TimeoutError:
+                print(f"{openai_model.name} timed out. Switching to the next model.")
+            except Exception as e:
+                print(f"Error with {openai_model.name}: {e}. Switching to the next model.")
+
+        # If OpenAI fails, fall back to other models
+        for model in self.models:
+            if model != openai_model:
+                try:
+                    response, score = model.request(query, timeout=timeout, max_tokens=max_tokens)
                     self.last_used_model = model
                     return response
-            except TimeoutError:
-                print(f"{model.name} timed out. Switching to the next model.")
-            except Exception as e:
-                print(f"Error with {model.name}: {e}. Switching to the next model.")
+                except TimeoutError:
+                    print(f"{model.name} timed out. Switching to the next model.")
+                except Exception as e:
+                    print(f"Error with {model.name}: {e}. Switching to the next model.")
+
         return None
+
 
 def main():
     switcher = LLM_Switcher(models)
