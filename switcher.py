@@ -13,14 +13,14 @@ load_dotenv()
 
 # Anthropic
 openai_api_key = os.getenv("OPENAI_API_KEY")
-anthropic_key = os.getenv("ANTHROPIC_API_KEY")
-hf_key = os.getenv("HF_API_KEY")
+# anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+# hf_key = os.getenv("HF_API_KEY")
 
 class ModelInterface:
     def __init__(self, name, endpoint, api_key):
         self.name = name
         self.endpoint = endpoint
-        self.api_key = api_key
+        self.api_key = openai_api_key
 
     def request(self, query, timeout=None, max_tokens=None):
         if not self.api_key:
@@ -33,12 +33,14 @@ class ModelInterface:
         return response
 
 # Example models
-openai = ModelInterface("openai", "https://api.model1.com")
-hf = ModelInterface("hf", "https://api.model2.com")
-anthropic = ModelInterface("anthropic", "https://api.model3.com")
+# Correctly initialize the openai instance with the api_key
+openai = ModelInterface("openai", "https://api.openai.com/v1/models", openai_api_key)
+
+# hf = ModelInterface("hf", "https://api.model2.com")
+# anthropic = ModelInterface("anthropic", "https://api.model3.com")
 
 # List of models to switch between
-models = [openai, hf, anthropic]
+models = [openai]
 
 class LLM_Switcher:
     def __init__(self, models):
