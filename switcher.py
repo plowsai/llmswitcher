@@ -1,6 +1,7 @@
 import time
 import os
 import sys
+import requests
 from dotenv import load_dotenv
 
 # Load environment variables
