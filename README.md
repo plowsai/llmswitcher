@@ -6,11 +6,6 @@
 ```
 pip install llm-switcher
 ```
-
-## Run 
-
-<p> This is how the run instructions work
-
 ## Disclaimer 
 
 <p> This is for pure experimental purposes. If you find this useful or want to make it better feel free to open a PR </p>
