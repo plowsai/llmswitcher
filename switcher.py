@@ -57,7 +57,7 @@ class ModelInterface:
 
 # Example models
 # Correctly initialize the openai instance with the api_key
-openai = ModelInterface("openai", "https://api.openai.com/v1/models", openai_api_key)
+openai = ModelInterface("openai", "https://api.openai.com/v1/models/", openai_api_key)
 ## ADDING HUGGING FACE SUPPORT LATER
 hf = ModelInterface("hf", "https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-8B", hf_key)
 anthropic = ModelInterface("anthropic", "https://api.anthropic.com/v1/messages", anthropic_key)
