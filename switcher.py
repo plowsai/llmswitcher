@@ -34,12 +34,26 @@ class ModelInterface:
     def request(self, query, timeout=None, max_tokens=None):
         if not self.api_key:
             raise Exception("API key not set for model.")
-        # Simulate a delay and a response
-        time.sleep(timeout)
-        response = {"tokens": 100, "result": "This is a placeholder response."}
-        if max_tokens and response["tokens"] > max_tokens:
-            raise Exception("Token count exceeded.")
-        return response
+        
+        # Prepare the headers and body for the API request
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        body = {
+            "model": "text-davinci-002", # Example model name, adjust as needed
+            "prompt": query,
+            "max_tokens": max_tokens or 100 # Default to 100 tokens if not specified
+        }
+        
+        # Send the request to the OpenAI API
+        try:
+            response = requests.post(self.endpoint, headers=headers, json=body, timeout=timeout)
+            response.raise_for_status() # Raise an exception if the request failed
+            return response.json(), response.status_code # Return the response and status code
+        except requests.exceptions.RequestException as e:
+            print(f"Error with {self.name}: {e}.")
+            return None, None
 
 # Example models
 # Correctly initialize the openai instance with the api_key
