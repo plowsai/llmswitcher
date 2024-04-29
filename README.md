@@ -1,7 +1,7 @@
 # LLM-Switcher 🎛️
 <p> Route between different LLM's based on a prompt. This helps reduce the cost of using an LLM that might be more expensive and or less performant on the task being prompted</p>
 
-## Install 
+## Install [Coming Soon]
 
 ```
 pip install llm-switcher
