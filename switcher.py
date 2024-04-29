@@ -12,19 +12,6 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
 hf_key = os.getenv("HF_API_KEY")
 
-import time
-import os
-import sys
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv()
-
-# Anthropic
-openai_api_key = os.getenv("OPENAI_API_KEY")
-anthropic_key = os.getenv("ANTHROPIC_API_KEY")
-hf_key = os.getenv("HF_API_KEY")
-
 class ModelInterface:
     def __init__(self, name, endpoint, api_key):
         self.name = name
